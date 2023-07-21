@@ -24,6 +24,11 @@ public class enemySpawn : MonoBehaviour
         }
     }
 
+    public void increaseSpawnRate()
+    {
+        spawnRate += 3;
+    }
+
     public void spawnEnemy()
     {
 

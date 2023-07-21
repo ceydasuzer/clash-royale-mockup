@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,12 +11,24 @@ public class timer : MonoBehaviour
     public Text timerText;
 
     public gameManager gameManager;
+    public GameObject enemyObject;
+
+    private enemy enemy;
+    public enemySpawn enemySpawn;
+
+    private void Start()
+    {
+       
+        //enemySpawn = GameObject.FindGameObjectWithTag("spawner").GetComponent<enemySpawn>();
+    }
 
 
 
     // Update is called once per frame
     void Update()
     {
+        //enemy = GameObject.FindGameObjectWithTag("enemy").GetComponent<enemy>();
+
         if (timeValue > 0)
         {
             timeValue -= Time.deltaTime;
@@ -27,7 +40,9 @@ public class timer : MonoBehaviour
         }
 
         DisplayTime(timeValue);
+
     }
+
 
     void DisplayTime(float timeToDisplay)
     {
@@ -39,6 +54,22 @@ public class timer : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
+        //if (seconds == 59)
+        //{
+        //    enemy.increaseDamage();
+        //    enemySpawn.increaseSpawnRate();
+        //}
+        //if (seconds == 30)
+        //{
+        //    enemy.increaseDamage();
+        //    enemySpawn.increaseSpawnRate();
+        //}
+
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+
+        
     }
+
+
 }

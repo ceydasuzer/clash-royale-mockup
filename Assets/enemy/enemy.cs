@@ -37,6 +37,11 @@ public class enemy : MonoBehaviour
         
     }
 
+    public void increaseDamage()
+    {
+       damage += 30;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name == "side")
