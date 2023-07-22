@@ -8,11 +8,14 @@ public class gameManager : MonoBehaviour
 {
     public GameObject timer;
     public GameObject gameOverPanel;
-    public GameObject pausePanel;
 
+    public GameObject enemySpawn;
+
+    private enemySpawn spawnScript;
     void Start()
     {
         gameOverPanel.SetActive(false);
+        spawnScript = enemySpawn.GetComponent<enemySpawn>();
     }
 
     public void resumeGame() { }
@@ -20,6 +23,7 @@ public class gameManager : MonoBehaviour
     public void gameOver() 
     {
         gameOverPanel.SetActive(true);
+        spawnScript.spawnRate = 0; 
         timer.SetActive(false);
     }
 

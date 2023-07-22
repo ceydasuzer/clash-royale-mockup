@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class enemySpawn : MonoBehaviour
     public float spawnRate = 3;
     private float timer = 0;
 
+
     private void Update()
     {
         if(timer < spawnRate)
@@ -22,17 +24,14 @@ public class enemySpawn : MonoBehaviour
             spawnEnemy();
             timer = 0;
         }
+        
     }
 
-    public void increaseSpawnRate()
-    {
-        spawnRate += 3;
-    }
 
     public void spawnEnemy()
     {
 
-        Instantiate(enemy, new Vector3(Random.Range(spawnPointLeft, spawnPointRight), enemyPos.position.y, enemyPos.position.z),transform.rotation);
+        Instantiate(enemy, new Vector3(UnityEngine.Random.Range(spawnPointLeft, spawnPointRight), enemyPos.position.y, enemyPos.position.z),transform.rotation);
         
     }
 }

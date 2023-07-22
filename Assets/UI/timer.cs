@@ -1,6 +1,6 @@
 using System.Collections;
-using System;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,32 +11,49 @@ public class timer : MonoBehaviour
     public Text timerText;
 
     public gameManager gameManager;
-    public GameObject enemyObject;
+    [SerializeField]public GameObject enemyObject;
+
+    [SerializeField]public GameObject enemySpawner;
+    private enemySpawn spawner;
 
     private enemy enemy;
-    public enemySpawn enemySpawn;
+
+    public int damage;
 
     private void Start()
     {
-       
-        //enemySpawn = GameObject.FindGameObjectWithTag("spawner").GetComponent<enemySpawn>();
+        
+        spawner = enemySpawner.GetComponent<enemySpawn>();
+        enemy = enemyObject.GetComponent<enemy>(); 
     }
 
-
+  
 
     // Update is called once per frame
     void Update()
     {
-        //enemy = GameObject.FindGameObjectWithTag("enemy").GetComponent<enemy>();
-
+        //damage = enemy.damage;
+        
         if (timeValue > 0)
         {
             timeValue -= Time.deltaTime;
+            if (timeValue <= (Convert.ToSingle(60.00000)))
+            {
+                spawner.spawnRate = 3.5f;
+                enemy.damage = 300;
+            }
+            if (timeValue <= Convert.ToSingle(30.00000))
+            {
+                spawner.spawnRate = 2;
+                enemy.damage = 350;
+            }
         }
         else
         {
             timeValue = 0;
+            enemy.damage = 200;
             gameManager.gameOver();
+            
         }
 
         DisplayTime(timeValue);
@@ -54,16 +71,8 @@ public class timer : MonoBehaviour
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
-        //if (seconds == 59)
-        //{
-        //    enemy.increaseDamage();
-        //    enemySpawn.increaseSpawnRate();
-        //}
-        //if (seconds == 30)
-        //{
-        //    enemy.increaseDamage();
-        //    enemySpawn.increaseSpawnRate();
-        //}
+
+
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 

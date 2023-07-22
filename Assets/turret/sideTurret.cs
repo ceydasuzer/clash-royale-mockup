@@ -19,6 +19,14 @@ public class sideTurret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
+    }
+
+    private void FixedUpdate()
+    {
+        if (hitPoint < 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

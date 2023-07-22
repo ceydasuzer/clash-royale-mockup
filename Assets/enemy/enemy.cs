@@ -12,8 +12,10 @@ public class enemy : MonoBehaviour
 
     public int damage;
 
-    sideTurret sideTurret;
-    mainTurret mainTurret;
+    //sideTurret sideTurret;
+    //mainTurret mainTurret;
+
+    private gameManager gameManager;
 
     public NavMeshAgent agent;
 
@@ -22,24 +24,40 @@ public class enemy : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         turrets = GameObject.FindGameObjectsWithTag("turret");
-
+        gameManager = gameObject.GetComponent<gameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       int randomTurret = Random.Range(0, 2);
 
-        for (int i =0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
-            agent.SetDestination(turrets[randomTurret].transform.position);
-        } 
-        
-    }
 
-    public void increaseDamage()
-    {
-       damage += 30;
+            int randomTurret = Random.Range(0, 2);
+            if (turrets[randomTurret] != null)
+            {
+                agent.SetDestination(turrets[randomTurret].transform.position);
+
+            }else if (turrets[0] != null)
+            {
+                agent.nextPosition = turrets[0].transform.position;
+            }
+            else if (turrets[1] != null)
+            {
+                agent.nextPosition = turrets[1].transform.position;
+            }
+            else if( turrets[0] == null & turrets[1] == null)
+            {
+                agent.nextPosition = turrets[2].transform.position;
+            }
+            else if (turrets[2] == null) {
+                agent.speed = 0;
+            }
+        }
+
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -54,6 +72,7 @@ public class enemy : MonoBehaviour
         {
             print("enemy in main");
             collision.gameObject.GetComponent<mainTurret>().hitPoint -= damage;
+            Destroy(gameObject);
         }
         
     }
