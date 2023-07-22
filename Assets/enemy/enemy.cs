@@ -15,6 +15,8 @@ public class enemy : MonoBehaviour
     //sideTurret sideTurret;
     //mainTurret mainTurret;
 
+    public enemySpawn enemySpawn;
+
     private gameManager gameManager;
 
     public NavMeshAgent agent;
@@ -53,7 +55,9 @@ public class enemy : MonoBehaviour
             }
             else if (turrets[2] == null) {
                 agent.speed = 0;
+                enemySpawn.spawnRate = 0;
             }
+
         }
 
 

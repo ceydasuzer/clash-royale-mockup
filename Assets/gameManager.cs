@@ -23,7 +23,7 @@ public class gameManager : MonoBehaviour
     public void gameOver() 
     {
         gameOverPanel.SetActive(true);
-        spawnScript.spawnRate = 0; 
+        //spawnScript.spawnRate = 0; 
         timer.SetActive(false);
     }
 
