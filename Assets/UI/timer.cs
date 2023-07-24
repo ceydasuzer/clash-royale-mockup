@@ -39,7 +39,7 @@ public class timer : MonoBehaviour
             timeValue -= Time.deltaTime;
             if (timeValue <= (Convert.ToSingle(60.00000)))
             {
-                spawner.spawnRate = 2.5f;
+                spawner.spawnRate = 3f;
                 enemy.damage = 300;
             }
             if (timeValue <= Convert.ToSingle(30.00000))

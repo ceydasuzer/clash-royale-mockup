@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turrets: []
-  damage: 300
+  damage: 350
   enemy_hp: 200
   enemySpawn: {fileID: 0}
   agent: {fileID: 5238496280675762064}
@@ -144,7 +144,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 12
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
