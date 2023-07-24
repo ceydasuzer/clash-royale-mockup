@@ -9,6 +9,7 @@ TagManager:
   - spawner
   - timer
   - manager
+  - enemyTurret
   layers:
   - Default
   - TransparentFX
