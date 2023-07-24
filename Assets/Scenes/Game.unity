@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 61723817}
   - component: {fileID: 61723816}
   - component: {fileID: 61723815}
+  - component: {fileID: 61723818}
   m_Layer: 0
   m_Name: dragon
   m_TagString: Untagged
@@ -237,10 +238,10 @@ RectTransform:
   m_Father: {fileID: 881488679}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 91, y: -120}
+  m_SizeDelta: {x: 180, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &61723815
 MonoBehaviour:
@@ -254,6 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d83a7a386d79474995a9f22a5e5aa0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 2027388437}
+  draggableFirstPosition: {fileID: 0}
 --- !u!114 &61723816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +292,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61723813}
   m_CullTransparentMesh: 1
+--- !u!225 &61723818
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61723813}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &204751348
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,6 +903,7 @@ GameObject:
   - component: {fileID: 682168957}
   - component: {fileID: 682168956}
   - component: {fileID: 682168955}
+  - component: {fileID: 682168958}
   m_Layer: 0
   m_Name: archer
   m_TagString: Untagged
@@ -910,10 +926,10 @@ RectTransform:
   m_Father: {fileID: 688721230}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 91, y: -120}
+  m_SizeDelta: {x: 180, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682168955
 MonoBehaviour:
@@ -927,6 +943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d83a7a386d79474995a9f22a5e5aa0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 2027388437}
+  draggableFirstPosition: {fileID: 0}
 --- !u!114 &682168956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,6 +980,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682168953}
   m_CullTransparentMesh: 1
+--- !u!225 &682168958
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682168953}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &688721229
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,7 +1005,7 @@ GameObject:
   - component: {fileID: 688721231}
   - component: {fileID: 688721233}
   m_Layer: 0
-  m_Name: card (3)
+  m_Name: card slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1044,7 +1074,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688721229}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
@@ -1188,7 +1218,7 @@ MonoBehaviour:
   enemyPos: {fileID: 1012020838}
   spawnPointRight: 8
   spawnPointLeft: -8
-  spawnRate: 5
+  spawnRate: 3
 --- !u!4 &723647885
 Transform:
   m_ObjectHideFlags: 0
@@ -1382,6 +1412,7 @@ GameObject:
   - component: {fileID: 774164671}
   - component: {fileID: 774164670}
   - component: {fileID: 774164669}
+  - component: {fileID: 774164672}
   m_Layer: 0
   m_Name: witch
   m_TagString: Untagged
@@ -1404,10 +1435,10 @@ RectTransform:
   m_Father: {fileID: 856790605}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 91, y: -120}
+  m_SizeDelta: {x: 180, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774164669
 MonoBehaviour:
@@ -1421,6 +1452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d83a7a386d79474995a9f22a5e5aa0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 2027388437}
+  draggableFirstPosition: {fileID: 0}
 --- !u!114 &774164670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,6 +1489,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774164667}
   m_CullTransparentMesh: 1
+--- !u!225 &774164672
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774164667}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &781088879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,7 +1628,7 @@ GameObject:
   - component: {fileID: 856790606}
   - component: {fileID: 856790608}
   m_Layer: 0
-  m_Name: card (2)
+  m_Name: card slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1652,7 +1697,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856790604}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
@@ -1682,7 +1727,7 @@ GameObject:
   - component: {fileID: 881488680}
   - component: {fileID: 881488682}
   m_Layer: 0
-  m_Name: aerial
+  m_Name: card slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1751,7 +1796,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881488678}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
@@ -1911,6 +1956,7 @@ GameObject:
   - component: {fileID: 1011684640}
   - component: {fileID: 1011684639}
   - component: {fileID: 1011684638}
+  - component: {fileID: 1011684641}
   m_Layer: 0
   m_Name: knight
   m_TagString: Untagged
@@ -1933,10 +1979,10 @@ RectTransform:
   m_Father: {fileID: 1305061562}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 91, y: -120}
+  m_SizeDelta: {x: 180, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1011684638
 MonoBehaviour:
@@ -1950,6 +1996,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d83a7a386d79474995a9f22a5e5aa0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 2027388437}
+  draggableFirstPosition: {fileID: 0}
 --- !u!114 &1011684639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1985,6 +2033,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011684636}
   m_CullTransparentMesh: 1
+--- !u!225 &1011684641
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011684636}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1012020837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2251,7 +2311,7 @@ GameObject:
   - component: {fileID: 1305061563}
   - component: {fileID: 1305061565}
   m_Layer: 0
-  m_Name: card (1)
+  m_Name: card slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2320,7 +2380,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305061561}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 

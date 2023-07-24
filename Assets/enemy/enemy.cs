@@ -11,6 +11,7 @@ public class enemy : MonoBehaviour
     public GameObject[] turrets;
 
     public int damage;
+    public int enemy_hp;
 
     //sideTurret sideTurret;
     //mainTurret mainTurret;
@@ -27,33 +28,42 @@ public class enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         turrets = GameObject.FindGameObjectsWithTag("turret");
         gameManager = gameObject.GetComponent<gameManager>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i <= 3; i++)
         {
 
             int randomTurret = Random.Range(0, 2);
-            if (turrets[randomTurret] != null)
-            {
+
+                Debug.Log(randomTurret);
                 agent.SetDestination(turrets[randomTurret].transform.position);
 
-            }else if (turrets[0] != null)
+            if (turrets[0] != null)
             {
-                agent.nextPosition = turrets[0].transform.position;
+                Debug.Log("turret 0 is not null");
+                agent.SetDestination(turrets[0].transform.position);
+                if (turrets[0] == null)
+                {
+                    agent.nextPosition = turrets[1].transform.position;
+                }
             }
             else if (turrets[1] != null)
             {
-                agent.nextPosition = turrets[1].transform.position;
+                Debug.Log("turret 0 is not null");
+                agent.SetDestination(turrets[1].transform.position);
             }
             else if( turrets[0] == null & turrets[1] == null)
             {
-                agent.nextPosition = turrets[2].transform.position;
+                Debug.Log("turret 0-1 is null");
+                agent.SetDestination(turrets[2].transform.position);
             }
             else if (turrets[2] == null) {
+                Debug.Log("main is null");
                 agent.speed = 0;
                 enemySpawn.spawnRate = 0;
             }
