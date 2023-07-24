@@ -8,13 +8,15 @@ public class draggableItem : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
     [SerializeField] private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    [SerializeField] private Transform draggableFirstPosition;
+
+    private Vector3 currentPosition;
+
+    public GameObject unit;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        draggableFirstPosition = GetComponent<Transform>();
 
         
     }
@@ -27,6 +29,7 @@ public class draggableItem : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        currentPosition = rectTransform.localPosition;
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
 
@@ -34,6 +37,7 @@ public class draggableItem : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        rectTransform.localPosition = currentPosition;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }

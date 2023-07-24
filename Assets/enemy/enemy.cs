@@ -40,8 +40,8 @@ public class enemy : MonoBehaviour
 
             int randomTurret = Random.Range(0, 2);
 
-                Debug.Log(randomTurret);
-                agent.SetDestination(turrets[randomTurret].transform.position);
+           //     Debug.Log(randomTurret);
+           //     agent.SetDestination(turrets[randomTurret].transform.position);
 
             if (turrets[0] != null)
             {
@@ -49,13 +49,17 @@ public class enemy : MonoBehaviour
                 agent.SetDestination(turrets[0].transform.position);
                 if (turrets[0] == null)
                 {
-                    agent.nextPosition = turrets[1].transform.position;
+                    agent.SetDestination(turrets[1].transform.position);
                 }
             }
             else if (turrets[1] != null)
             {
                 Debug.Log("turret 0 is not null");
                 agent.SetDestination(turrets[1].transform.position);
+                if (turrets[1] == null)
+                {
+                    agent.SetDestination(turrets[0].transform.position);
+                }
             }
             else if( turrets[0] == null & turrets[1] == null)
             {
