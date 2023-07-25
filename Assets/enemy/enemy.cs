@@ -5,16 +5,14 @@ using UnityEngine.AI;
 
 public class enemy : MonoBehaviour
 {
-    //public Transform sideTurret_1;
-    //public Transform sideTurret_2;
-    //public Transform mainTurret;
+
     public GameObject[] turrets;
 
     public int damage;
     public int enemy_hp;
+    public int maxHealth = 200;
+    public int currentHealth;
 
-    //sideTurret sideTurret;
-    //mainTurret mainTurret;
 
     public enemySpawn enemySpawn;
 
