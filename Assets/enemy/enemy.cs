@@ -61,7 +61,7 @@ public class enemy : MonoBehaviour
                     agent.SetDestination(turrets[0].transform.position);
                 }
             }
-            else if( turrets[0] == null & turrets[1] == null)
+            else if( turrets[0] == null && turrets[1] == null)
             {
                 Debug.Log("turret 0-1 is null");
                 agent.SetDestination(turrets[2].transform.position);

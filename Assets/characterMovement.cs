@@ -26,7 +26,6 @@ public class characterMovement : MonoBehaviour
  
         for (int i = 0; i <= 3; i++)
         {
-            Debug.Log(opponentTurrets);
             int randomTurret = Random.Range(0, 2);
             agent.SetDestination(opponentTurrets[randomTurret].transform.position);
 

@@ -10,6 +10,10 @@ TagManager:
   - timer
   - manager
   - enemyTurret
+  - dragon
+  - healer
+  - knight
+  - witch
   layers:
   - Default
   - TransparentFX
