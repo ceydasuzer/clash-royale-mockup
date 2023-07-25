@@ -32,47 +32,19 @@ public class enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        for (int i = 0; i <= 3; i++)
+        if(turrets.Length > 0)
         {
-
-            int randomTurret = Random.Range(0, 2);
-
-           //     Debug.Log(randomTurret);
-           //     agent.SetDestination(turrets[randomTurret].transform.position);
-
-            if (turrets[0] != null)
+            int randomTurret = Random.Range(0, turrets.Length-1);
+            if(turrets[randomTurret] != null)
             {
-                Debug.Log("turret 0 is not null");
-                agent.SetDestination(turrets[0].transform.position);
-                if (turrets[0] == null)
-                {
-                    agent.SetDestination(turrets[1].transform.position);
-                }
+                agent.SetDestination(turrets[randomTurret].transform.position);
             }
-            else if (turrets[1] != null)
-            {
-                Debug.Log("turret 0 is not null");
-                agent.SetDestination(turrets[1].transform.position);
-                if (turrets[1] == null)
-                {
-                    agent.SetDestination(turrets[0].transform.position);
-                }
-            }
-            else if( turrets[0] == null && turrets[1] == null)
-            {
-                Debug.Log("turret 0-1 is null");
-                agent.SetDestination(turrets[2].transform.position);
-            }
-            else if (turrets[2] == null) {
-                Debug.Log("main is null");
-                agent.speed = 0;
-                enemySpawn.spawnRate = 0;
-            }
-
         }
-
-
+        else
+        {
+            agent.isStopped = true;
+            
+        }
 
     }
 
