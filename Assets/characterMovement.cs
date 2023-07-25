@@ -23,14 +23,14 @@ public class characterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
-        for (int i = 0; i <= 3; i++)
+        if(opponentTurrets.Length > 0)
         {
-            int randomTurret = Random.Range(0, 2);
-            agent.SetDestination(opponentTurrets[randomTurret].transform.position);
-
-
-
+            int randomTurret = Random.Range(0, opponentTurrets.Length);
+            if(opponentTurrets[randomTurret] != null)
+            {
+                agent.SetDestination(opponentTurrets[randomTurret].transform.position);
+            }
         }
+ 
     }
 }

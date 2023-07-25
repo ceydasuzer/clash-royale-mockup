@@ -52,13 +52,12 @@ public class enemy : MonoBehaviour
     {
         if(collision.gameObject.name == "side")
         {
-            print("enemy in side");
+
             collision.gameObject.GetComponent<sideTurret>().hitPoint -= damage;
             Destroy(gameObject);
         }
         else if (collision.gameObject.name == "main")
         {
-            print("enemy in main");
             collision.gameObject.GetComponent<mainTurret>().hitPoint -= damage;
             Destroy(gameObject);
         }
