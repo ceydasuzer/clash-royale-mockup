@@ -9,9 +9,12 @@ public class draggableItem : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
 
+    public LayerMask groundLayer;
+
     private Vector3 currentPosition;
 
     public GameObject unit;
+    public Transform champSpawnPoint;
 
     private void Awake()
     {
@@ -37,8 +40,16 @@ public class draggableItem : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if(Physics.Raycast(ray, out var hit, Mathf.Infinity ,groundLayer))
+        {
+            Instantiate(unit,hit.point, Quaternion.identity);
+        }
+
         rectTransform.localPosition = currentPosition;
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+
     }
 }

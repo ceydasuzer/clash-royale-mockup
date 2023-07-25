@@ -17,6 +17,7 @@ public class characterMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         opponentTurrets = GameObject.FindGameObjectsWithTag("enemyTurret");
         gameManager = gameObject.GetComponent<gameManager>();
+        
     }
 
     // Update is called once per frame
@@ -25,37 +26,11 @@ public class characterMovement : MonoBehaviour
  
         for (int i = 0; i <= 3; i++)
         {
+            Debug.Log(opponentTurrets);
             int randomTurret = Random.Range(0, 2);
-            //     Debug.Log(randomTurret);
-            //     agent.SetDestination(turrets[randomTurret].transform.position);
+            agent.SetDestination(opponentTurrets[randomTurret].transform.position);
 
-            if (opponentTurrets[0] != null)
-            {
-                Debug.Log("turret 0 is not null");
-                agent.SetDestination(opponentTurrets[0].transform.position);
-                if (opponentTurrets[0] == null)
-                {
-                    agent.SetDestination(opponentTurrets[1].transform.position);
-                }
-            }
-            else if (opponentTurrets[1] != null)
-            {
-                Debug.Log("turret 0 is not null");
-                agent.SetDestination(opponentTurrets[1].transform.position);
-                if (opponentTurrets[1] == null)
-                {
-                    agent.SetDestination(opponentTurrets[0].transform.position);
-                }
-            }
-            else if (opponentTurrets[0] == null & opponentTurrets[1] == null)
-            {
-                Debug.Log("turret 0-1 is null");
-                agent.SetDestination(opponentTurrets[2].transform.position);
-            }
-            else if (opponentTurrets[2] == null)
-            {
-                Debug.Log("main is null");
-            }
+
 
         }
     }
