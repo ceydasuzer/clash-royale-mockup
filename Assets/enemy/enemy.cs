@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class enemy : MonoBehaviour
 {
 
-    public GameObject[] turrets;
+    private List<GameObject> turrets = new List<GameObject>();
+    private GameObject currentTarget;
 
     public int damage;
     public int enemy_hp;
@@ -24,28 +25,52 @@ public class enemy : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        turrets = GameObject.FindGameObjectsWithTag("turret");
         gameManager = gameObject.GetComponent<gameManager>();
+        GameObject[] turretObjects = GameObject.FindGameObjectsWithTag("turret");
+        foreach( GameObject turret in turretObjects)
+        {
+            turrets.Add(turret);
+        }
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(turrets.Length > 0)
+        if(turrets.Count > 0)
         {
-            int randomTurret = Random.Range(0, turrets.Length-1);
-            if(turrets[randomTurret] != null)
+            int randomTurret = Random.Range(0, turrets.Count-1);
+            if(turrets[randomTurret].activeSelf)
             {
                 agent.SetDestination(turrets[randomTurret].transform.position);
             }
         }
         else
         {
-            agent.isStopped = true;
-            
+            Debug.Log("finding new target");
+            FindNewTarget();
+        }
+        
+
+    }
+
+    private void FindNewTarget()
+    {
+        List<GameObject> activeTurrets = new List<GameObject>();
+        foreach (GameObject turret in turrets)
+        {
+            if(turret != null && turret.activeSelf)
+            {
+                activeTurrets.Add(turret);
+            }
         }
 
+        if (activeTurrets.Count > 0)
+        {
+            int randomTurretIndex = Random.Range(0, activeTurrets.Count);
+            currentTarget = activeTurrets[randomTurretIndex];
+            agent.SetDestination(currentTarget.transform.position);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
