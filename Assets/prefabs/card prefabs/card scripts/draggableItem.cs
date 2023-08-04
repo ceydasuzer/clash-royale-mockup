@@ -15,6 +15,8 @@ public class draggableItem : MonoBehaviour, IDragHandler , IBeginDragHandler, IE
 
     public GameObject unit;
     public Transform champSpawnPoint;
+    public int manaRequirement;
+
 
     private void Awake()
     {
