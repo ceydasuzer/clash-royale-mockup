@@ -8,7 +8,7 @@ This project's purpose is to make a game that is similar to clash royale.
   - [The challenge](#the-challenge)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [GAme mechanics](#game-mechanics)
+  - [Game mechanics](#game-mechanics)
   - [What I've Learned](#what-i've-learned)
 
   ## Overview
